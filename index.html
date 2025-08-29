@@ -152,48 +152,107 @@
 
       </div>
 
-       <!-- ✅ Gallery Section -->
-    <section class="container" id="gallery">
-      <h2 class="section-title">Gallery — Photos & Videos</h2>
-      <p class="muted">A showcase of my photography highlights and video productions.</p>
+     <!-- ✅ Gallery Section -->
+<section class="container" id="gallery">
+  <h2 class="section-title">Gallery — Photos & Videos</h2>
+  <p class="muted">Explore my photography and video work across different events.</p>
 
-      <div class="project-grid">
-        <!-- Photo 1 -->
-        <article class="project-card">
-          <div class="thumb">
-            <img src="images/gallery-photo1.jpg" alt="Wedding Photography" />
-          </div>
-          <h3>Wedding Moments</h3>
-          <p>Capturing love stories through timeless photography.</p>
-          <div class="project-links">
-            <a href="images/gallery-photo1.jpg" target="_blank">View Full</a>
-          </div>
-        </article>
+  <!-- Gallery Navigation -->
+  <nav class="gallery-nav">
+    <a href="#weddings">Weddings</a>
+    <a href="#events">Events</a>
+    <a href="#portraits">Portraits</a>
+    <a href="#videos">Videos</a>
+  </nav>
 
-        <!-- Photo 2 -->
-        <article class="project-card">
-          <div class="thumb">
-            <img src="images/gallery-photo2.jpg" alt="Event Photography" />
-          </div>
-          <h3>Event Highlights</h3>
-          <p>Energy-filled photos from live concerts and events.</p>
-          <div class="project-links">
-            <a href="images/gallery-photo2.jpg" target="_blank">View Full</a>
-          </div>
-        </article>
+  <!-- Weddings -->
+  <div class="gallery-category" id="weddings">
+    <h3>Wedding Photography</h3>
+    <div class="project-grid">
+      <article class="project-card">
+        <div class="thumb"><img src="images/wedding1.jpg" alt="Wedding 1"></div>
+        <h4>Wedding Couple</h4>
+        <p>Capturing the vows moment.</p>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="images/wedding2.jpg" alt="Wedding 2"></div>
+        <h4>Reception Highlights</h4>
+        <p>Celebration moments with friends and family.</p>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="images/wedding3.jpg" alt="Wedding 3"></div>
+        <h4>First Dance</h4>
+        <p>Capturing the magic of the first dance.</p>
+      </article>
+    </div>
+  </div>
 
-        <!-- Video 1 -->
-        <article class="project-card">
-          <div class="thumb">
-            <video src="videos/sample1.mp4" muted loop autoplay playsinline></video>
-          </div>
-          <h3>Livestream Highlight</h3>
-          <p>A clip from one of my livestream productions.</p>
-          <div class="project-links">
-            <a href="videos/sample1.mp4" target="_blank">Watch Video</a>
-          </div>
-        </article>
+  <!-- Events -->
+  <div class="gallery-category" id="events">
+    <h3>Event & Concert Photography</h3>
+    <div class="project-grid">
+      <article class="project-card">
+        <div class="thumb"><img src="images/event1.jpg" alt="Event 1"></div>
+        <h4>Concert Lights</h4>
+        <p>Dynamic stage lighting shots.</p>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="images/event2.jpg" alt="Event 2"></div>
+        <h4>Performers Live</h4>
+        <p>Capturing energy from stage performers.</p>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="images/event3.jpg" alt="Event 3"></div>
+        <h4>Audience Reactions</h4>
+        <p>Emotional moments from the crowd.</p>
+      </article>
+    </div>
+  </div>
 
+  <!-- Portraits -->
+  <div class="gallery-category" id="portraits">
+    <h3>Portrait Sessions</h3>
+    <div class="project-grid">
+      <article class="project-card">
+        <div class="thumb"><img src="images/portrait1.jpg" alt="Portrait 1"></div>
+        <h4>Outdoor Portrait</h4>
+        <p>Natural light portraits with cinematic tones.</p>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="images/portrait2.jpg" alt="Portrait 2"></div>
+        <h4>Studio Portrait</h4>
+        <p>Creative lighting setups for a dramatic look.</p>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="images/portrait3.jpg" alt="Portrait 3"></div>
+        <h4>Close-Up Portrait</h4>
+        <p>Intimate close-ups with rich detail.</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- Videos -->
+  <div class="gallery-category" id="videos">
+    <h3>Video Highlights</h3>
+    <div class="project-grid">
+      <article class="project-card">
+        <div class="thumb"><video src="videos/sample1.mp4" muted autoplay loop playsinline></video></div>
+        <h4>Livestream Session</h4>
+        <p>Behind the scenes of a live broadcast.</p>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><video src="videos/sample2.mp4" muted autoplay loop playsinline></video></div>
+        <h4>Event Highlight</h4>
+        <p>Energy captured during a live concert.</p>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><video src="videos/sample3.mp4" muted autoplay loop playsinline></video></div>
+        <h4>Behind the Scenes</h4>
+        <p>A glimpse into the production process.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
     </section>
 
@@ -248,4 +307,13 @@
   <!-- Link JS -->
   <script src="script.js" defer></script>
 </body>
+<!-- Lightbox Viewer -->
+<div id="lightboxOverlay" class="lightbox-overlay">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightboxImg">
+  <video class="lightbox-content" id="lightboxVideo" controls></video>
+  <a class="lightbox-prev">&#10094;</a>
+  <a class="lightbox-next">&#10095;</a>
+</div>
+
 </html>

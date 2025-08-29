@@ -89,3 +89,79 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ev.target === lightbox) closeLightbox();
   });
 });
+// ===== Hero Background Slideshow =====
+const heroSection = document.querySelector(".hero");
+
+// Array of background images
+const heroImages = [
+  "asset/guru.jpg",          // profile photo
+  "images/gallery-photo1.jpg", 
+  "images/gallery-photo2.jpg"
+];
+
+let heroIndex = 0;
+
+function changeHeroBackground() {
+  heroIndex = (heroIndex + 1) % heroImages.length;
+  heroSection.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
+  heroSection.style.backgroundSize = "cover";
+  heroSection.style.backgroundPosition = "center";
+}
+
+// Change every 10 seconds
+setInterval(changeHeroBackground, 10000);
+// Lightbox
+const overlay = document.getElementById("lightboxOverlay");
+const lbImg = document.getElementById("lightboxImg");
+const lbVideo = document.getElementById("lightboxVideo");
+const closeBtn = document.querySelector(".lightbox-close");
+const nextBtn = document.querySelector(".lightbox-next");
+const prevBtn = document.querySelector(".lightbox-prev");
+
+let galleryItems = [];
+let currentIndex = 0;
+
+document.querySelectorAll("[data-lightbox]").forEach((link, i) => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    galleryItems = [...document.querySelectorAll(`[data-lightbox="${link.dataset.lightbox}"]`)];
+    currentIndex = galleryItems.indexOf(link);
+    openLightbox(galleryItems[currentIndex].getAttribute("href"));
+  });
+});
+
+function openLightbox(src) {
+  overlay.style.display = "block";
+  if (src.endsWith(".mp4")) {
+    lbImg.style.display = "none";
+    lbVideo.style.display = "block";
+    lbVideo.src = src;
+    lbVideo.play();
+  } else {
+    lbVideo.style.display = "none";
+    lbImg.style.display = "block";
+    lbImg.src = src;
+  }
+}
+
+function closeLightbox() {
+  overlay.style.display = "none";
+  lbImg.src = "";
+  lbVideo.src = "";
+  lbVideo.pause();
+}
+
+function showNext(step) {
+  currentIndex = (currentIndex + step + galleryItems.length) % galleryItems.length;
+  openLightbox(galleryItems[currentIndex].getAttribute("href"));
+}
+
+closeBtn.addEventListener("click", closeLightbox);
+nextBtn.addEventListener("click", () => showNext(1));
+prevBtn.addEventListener("click", () => showNext(-1));
+
+window.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") showNext(1);
+  if (e.key === "ArrowLeft") showNext(-1);
+});
